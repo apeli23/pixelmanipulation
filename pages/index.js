@@ -25,19 +25,7 @@ export default function Home() {
       context.drawImage(image, 0, 0);
     };
 
-    const inputs = document.querySelectorAll("[name=color]");
-    for (const input of inputs) {
-      input.addEventListener("change", (evt) => {
-        switch (evt.target.value) {
-          case "inverted":
-            return invert();
-          case "grayscale":
-            return grayscale();
-          default:
-            return original();
-        }
-      });
-    }
+
   }, []);
 
   const original = () => {
@@ -48,7 +36,7 @@ export default function Home() {
   };
 
   const invert = () => {
-    orgRef.current.checked= false;
+    orgRef.current.checked = false;
     grayRef.current.checked = false;
     context.drawImage(image, 0, 0);
     const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
@@ -62,7 +50,7 @@ export default function Home() {
   };
 
   const grayscale = () => {
-    orgRef.current.checked= false;
+    orgRef.current.checked = false;
     invRef.current.checked = false;
 
     context.drawImage(image, 0, 0);
